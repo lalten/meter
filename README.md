@@ -35,3 +35,8 @@ GND      Out
 | Out | UART output |
 
 To be able to flash via UART, keep /BOOT low while triggering a reset by strobing /RESET low.
+
+## OTA flashing
+
+In Arduino IDE preferences turn on verbose output for "upload".  
+When you upload your sketch it will show you the command line its using and more importantly "where" it's decided to put the .bin file, for [people](http://www.esp8266.com/viewtopic.php?p=20942#p20942) on windows it's in *C:\Users\Laurenz\AppData\Local\Temp\build4391113069216900671.tmp/webupdate.cpp.bin*
