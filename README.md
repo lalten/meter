@@ -9,9 +9,17 @@ Components
   
 
 # Setup
- * Install the Arduino IDE with Esp8266 support as per https://github.com/esp8266/Arduino
+ * Install the Arduino IDE with Esp8266 support 
  * As of [now](https://github.com/esp8266/Arduino/issues/268#issuecomment-111174573), you need to use either the staging release or build from git to use the OTA update infrastructure: http://arduino.esp8266.com/staging/package_esp8266com_index.json
  * Make sure to select the ESP8266 in the Tools>Board menu.
+
+## Arduino IDE
+I chose to install the latest ESP8266-enabled Arduino IDE from source, because it provides neat OTA update features.
+ * *git clone https://github.com/esp8266/Arduino.git* as detailed on https://github.com/esp8266/Arduino
+ * Install Ant from https://code.google.com/p/winant/  
+Note that you [need](https://github.com/arduino/Arduino/issues/3276) to use a 32bit [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) with it (otherwise the successfully compiled arduino_debug.exe prints the error ..."\lib\AStylej.dll: Can't load IA 32-bit .dll on a AMD 64-bit platform" in a terminal).  
+ * I ran into issues with the xtensa-toolchain .tgz file. With *which tar.exe* I found out that in my case *C:\WinAVR-20100110\utils\bin\tar.exe* (GNU tar 1.13.19) was used. I replaced the file with [bsdtar.exe](https://code.google.com/p/i18n-zh/downloads/detail?name=bsdtar.exe) (renamed to tar.exe) in the same directory.
+The result is the file [arduino-1.6.6-windows.zip](arduino-1.6.6-windows.zip)  
 
 ## First time flashing
 Connect the ESP8266 module to your serial adapter. Pinout and functions:
