@@ -36,7 +36,7 @@ GND      Out
 | 3V3 | VCC |
 | /BOOT | GPIO0 / Pull up to VCC |
 | /RESET | Pull up to VCC |
-| GPIO | ? |
+| GPIO | GPIO2 |
 | /PWRDWN | Pull up to VCC |
 | GND | Ground |
 | Out | UART output |
