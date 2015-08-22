@@ -100,3 +100,7 @@ Relevant tickets:
  * https://github.com/esp8266/Arduino/issues/268
  * https://github.com/esp8266/Arduino/issues/517
  * https://github.com/esp8266/Arduino/issues/708
+
+# Display #
+
+There are various services that offer IOT data collection, analyzation and visualization; however all of them are rate limited or not free. The ESP8266 will propably generate about 1 sample per 3 seconds (1200W average). https://thingspeak.com/ limits you to a 15s rate. http://emoncms.org/ limits to 10s rates, but allows sending more than one sample at a time, using [bulk mode](http://emoncms.org/input/api)!
