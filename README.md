@@ -26,20 +26,20 @@ Connect the ESP8266 module to your serial adapter. Pinout and functions:
 ```
 In       3V3
 /BOOT    /RESET
-GPIO     /PWRDWN
+GPIO2    /PWRDWN
 GND      Out
 ```
 
-| Pin | Usage |
-| --- | -------- |
-| In | UART input |
-| 3V3 | VCC |
-| /BOOT | GPIO0 / Pull up to VCC |
-| /RESET | Pull up to VCC |
-| GPIO | GPIO2 |
-| /PWRDWN | Pull up to VCC |
-| GND | Ground |
-| Out | UART output |
+| Pin | Id    | Usage |
+| --- | ----- | ----- |
+| In  | GPIO3 | UART input / S0 input |
+| 3V3 | VCC | VCC |
+| /BOOT | GPIO0 | Pull up to VCC |
+| /RESET | RESET | Pull up to VCC |
+| GPIO | GPIO2 | - |
+| /PWRDWN | CHPD | Pull up to VCC |
+| GND | GND | Ground |
+| Out | GPIO1 | UART output |
 
 To be able to flash via UART, keep /BOOT low while triggering a reset by strobing /RESET low.
 
@@ -104,3 +104,6 @@ Relevant tickets:
 # Display #
 
 There are various services that offer IOT data collection, analyzation and visualization; however all of them are rate limited or not free. The ESP8266 will propably generate about 1 sample per 3 seconds (1200W average). https://thingspeak.com/ limits you to a 15s rate. http://emoncms.org/ limits to 10s rates, but allows sending more than one sample at a time, using [bulk mode](http://emoncms.org/input/api)!
+
+Relevant:
+ * [how the time parameter works in bulk mode](http://openenergymonitor.org/emon/node/3027)
