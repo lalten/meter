@@ -107,3 +107,11 @@ There are various services that offer IOT data collection, analyzation and visua
 
 Relevant:
  * [how the time parameter works in bulk mode](http://openenergymonitor.org/emon/node/3027)
+
+
+
+
+
+# Paradigma Heating #
+ftp://ftp.tvdr.de/heizung
+http://www.vdr-portal.de/board79-international/board83-off-topic/119690-heizungssteuerung-daten-auslesen
