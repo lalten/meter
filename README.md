@@ -141,3 +141,19 @@ Test it with
 echo Hello | sudo nc -l 80
 ```
 ... and point the browser of a device connected to the Raspberry's ethernet port to http://paradigma.remoteportal.de
+
+Get the Paradigma-Server
+```sh
+mkdir ~/heizung
+cd ~/heizung
+wget ftp://ftp.tvdr.de/heizung/paradigma-server-0.0.5
+mv paradigma-server-0.0.5 paradigma-server-0.0.5.pl
+chmod +x paradigma-server-0.0.5.pl
+```
+
+Install RRDs
+```sh
+sudo apt-get install librrds-perl
+```
+
+
