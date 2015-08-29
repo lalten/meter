@@ -215,3 +215,8 @@ Err = 65534
 St  = 1
 ```
 
+Prepare the Emoncms sender module
+```sh
+sudo apt-get install python-requests
+```
+
