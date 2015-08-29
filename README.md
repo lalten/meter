@@ -124,7 +124,11 @@ Get the original IP:
 ```sh
 PARADIGMA_SERVER=$(host paradigma.remoteportal.de | awk '{ print $(NF) }')
 ```
-Reroute all their packets to another IP:
+Get the network interface's IP:
+```sh
+MY_SERVER=$(ifconfig eth0 | grep -Po 't addr:\K[\d.]+')
+```
+Reroute all the packets:
 ```sh
 MY_SERVER=192.168.1.1
 sudo iptables -t nat -A PREROUTING -d $PARADIGMA_SERVER -j DNAT --to-destination $MY_SERVER
