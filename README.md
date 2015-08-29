@@ -133,3 +133,10 @@ Reroute all the packets:
 MY_SERVER=192.168.1.1
 sudo iptables -t nat -A PREROUTING -d $PARADIGMA_SERVER -j DNAT --to-destination $MY_SERVER
 ```
+
+
+Test it with
+```sh
+echo Hello | sudo nc -l 80
+```
+... and point the browser of a device connected to the Raspberry's ethernet port to http://paradigma.remoteportal.de
