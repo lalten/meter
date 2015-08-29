@@ -119,24 +119,25 @@ Relevant:
  * ftp://ftp.tvdr.de/heizung
  * http://www.vdr-portal.de/board79-international/board83-off-topic/119690-heizungssteuerung-daten-auslesen
 
+Configure a Raspberry Pi as WiFi -> Ethernet router, as described in https://wiki.ubuntuusers.de/router#Linux-als-Gateway
 
-Get the original IP:
+Append this to */etc/rc.local* (but above exit 0)
 ```sh
+# Configure wlan0<-> eth0 NAT
+sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+# Get the original IP:
 PARADIGMA_SERVER=$(host paradigma.remoteportal.de | awk '{ print $(NF) }')
-```
-Get the network interface's IP:
-```sh
+# Get the network interface's IP:
 MY_SERVER=$(ifconfig eth0 | grep -Po 't addr:\K[\d.]+')
-```
-Reroute all the packets:
-```sh
-MY_SERVER=192.168.1.1
+# Reroute all the packets:
 sudo iptables -t nat -A PREROUTING -d $PARADIGMA_SERVER -j DNAT --to-destination $MY_SERVER
+# Print some info
+echo "Redirecting "$PARADIGMA_SERVER" to "$MY_SERVER
 ```
-
 
 Test it with
 ```sh
+
 echo Hello | sudo nc -l 80
 ```
 ... and point the browser of a device connected to the Raspberry's ethernet port to http://paradigma.remoteportal.de
