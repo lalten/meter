@@ -162,3 +162,56 @@ Make the WiFi a little more reliable
 sudo mv /etc/ifplugd/action.d/ifupdown /etc/ifplugd/action.d/ifupdown.original
 sudo cp /etc/wpa_supplicant/ifupdown.sh /etc/ifplugd/action.d//ifupdown
 ```
+
+
+When the Paradigma system is connected, you can start the script:
+```sh
+cd heizung
+./paradigma-server.pl -l
+```
+
+The output will look like
+```
+MAC = 01:23:45:67:89:AB
+Aussen  = 22.5
+HeizungVorlauf = 30.3
+HeizungRuecklauf = 29.3
+Brauchwasser  = 72.5
+Zirkulation  = -29.9
+Kollektor = 41.8
+KesselVorlauf = 0.0
+KesselRuecklauf = 0.0
+BrauchwasserSoll = 50.0
+InnenSoll = 20.0
+Innen = 29.6
+KesselSoll = 0.0
+BA  = 0
+Trn = 20.0
+Trk = 22.0
+Tra = 16.0
+Fusspunkt = 35.0
+Steilheit = 1.3
+TVm = 70.0
+HeizgrenzeHeizen = 20.0
+HeizgrenzeAbsenken = 10.0
+Tfs = 2.0
+tva = 120
+uek = 0.0
+shk = 20.0
+phk = 100
+tmi = 2
+TWn = 50.0
+TWk = 60.0
+Stx = 1
+Raumeinfluss  = 0.0
+BrauchwasserDelta  = 5.0
+npp = 5.0
+tmk = 5
+NrB = 91
+ZirkulationDelta  = 50.0
+Countdown = 0
+Relais = 65536
+Err = 65534
+St  = 1
+```
+
