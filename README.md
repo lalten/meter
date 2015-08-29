@@ -156,4 +156,9 @@ Install RRDs
 sudo apt-get install librrds-perl
 ```
 
-
+Make the WiFi a little more reliable
+```sh
+# http://raspberrypi.stackexchange.com/a/5341
+sudo mv /etc/ifplugd/action.d/ifupdown /etc/ifplugd/action.d/ifupdown.original
+sudo cp /etc/wpa_supplicant/ifupdown.sh /etc/ifplugd/action.d//ifupdown
+```
