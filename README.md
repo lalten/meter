@@ -113,5 +113,19 @@ Relevant:
 
 
 # Paradigma Heating #
-ftp://ftp.tvdr.de/heizung
-http://www.vdr-portal.de/board79-international/board83-off-topic/119690-heizungssteuerung-daten-auslesen
+
+(work in progress)
+
+ * ftp://ftp.tvdr.de/heizung
+ * http://www.vdr-portal.de/board79-international/board83-off-topic/119690-heizungssteuerung-daten-auslesen
+
+
+Get the original IP:
+```sh
+PARADIGMA_SERVER=$(host paradigma.remoteportal.de | awk '{ print $(NF) }')
+```
+Reroute all their packets to another IP:
+```sh
+MY_SERVER=192.168.1.1
+sudo iptables -t nat -A PREROUTING -d $PARADIGMA_SERVER -j DNAT --to-destination $MY_SERVER
+```
