@@ -147,8 +147,8 @@ Get the Paradigma-Server
 mkdir ~/heizung
 cd ~/heizung
 wget ftp://ftp.tvdr.de/heizung/paradigma-server-0.0.5
-mv paradigma-server-0.0.5 paradigma-server-0.0.5.pl
-chmod +x paradigma-server-0.0.5.pl
+mv paradigma-server-0.0.5 paradigma-server.pl
+chmod +x paradigma-server.pl
 ```
 
 Install RRDs
@@ -219,4 +219,11 @@ Prepare the Emoncms sender module
 ```sh
 sudo apt-get install python-requests
 ```
+
+Append to /etc/rc.local (before exit 0)
+```sh
+# Start the Paradigma Server
+/home/pi/heizung/keepalive.sh &
+```
+
 
