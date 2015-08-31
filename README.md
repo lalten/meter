@@ -163,6 +163,31 @@ sudo mv /etc/ifplugd/action.d/ifupdown /etc/ifplugd/action.d/ifupdown.original
 sudo cp /etc/wpa_supplicant/ifupdown.sh /etc/ifplugd/action.d//ifupdown
 ```
 
+Reboot if Wifi connection is lost 
+```sh
+#! /bin/bash
+
+IP="192.168.1.1"
+
+while true
+  do
+  ping -c4 $IP > /dev/null
+  if [ $? != 0 ]
+    then
+    echo "Ping failed, trying again in 10s"
+    sleep 10
+    ping -c4 $IP > /dev/null
+    if [ $? != 0 ]
+      then
+      echo "PING failed again, rebooting!"
+      sudo reboot
+      exit 0
+    fi
+  fi
+done
+```
+
+
 
 When the Paradigma system is connected, you can start the script:
 ```sh
