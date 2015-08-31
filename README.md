@@ -249,6 +249,10 @@ Append to /etc/rc.local (before exit 0)
 ```sh
 # Start the Paradigma Server
 /home/pi/heizung/keepalive.sh &
+
+# reboot on wifi loss
+/home/pi/heizung/checkwifi.sh > /home/pi/heizung/checkwifi.log 2>&1
+
 ```
 
 
